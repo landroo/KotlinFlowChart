@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="32dp"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/rectImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        app:srcCompat="@drawable/rect" />
+
+    <ImageView
+        android:id="@+id/circImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        app:srcCompat="@drawable/circ" />
+
+    <ImageView
+        android:id="@+id/rombImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        app:srcCompat="@drawable/romb" />
+
+    <ImageView
+        android:id="@+id/tri1ImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        app:srcCompat="@drawable/tri1" />
+
+    <ImageView
+        android:id="@+id/tri2ImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        app:srcCompat="@drawable/tri2" />
+
+    <ImageView
+        android:id="@+id/tri3ImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        app:srcCompat="@drawable/tri3" />
+
+    <ImageView
+        android:id="@+id/tri4ImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        app:srcCompat="@drawable/tri4" />
+
+    <ImageView
+        android:id="@+id/addImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        app:srcCompat="@drawable/ic_shortcut_add_circle_outline" />
+
+    <ImageView
+        android:id="@+id/removeImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        app:srcCompat="@drawable/ic_shortcut_remove_circle_outline" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Node"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/editImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/addImageView"
+        android:layout_marginRight="90dp"
+        app:srcCompat="@drawable/ic_shortcut_border_color" />
+
+    <ImageView
+        android:id="@+id/redImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/addImageView"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="18dp"
+        app:srcCompat="@drawable/red" />
+
+    <ImageView
+        android:id="@+id/blueImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/addImageView"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="18dp"
+        app:srcCompat="@drawable/blue" />
+
+    <ImageView
+        android:id="@+id/greenImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/addImageView"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="18dp"
+        app:srcCompat="@drawable/green" />
+
+    <ImageView
+        android:id="@+id/cyanImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/addImageView"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="18dp"
+        app:srcCompat="@drawable/cyan" />
+
+    <ImageView
+        android:id="@+id/magentaImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/addImageView"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="18dp"
+        app:srcCompat="@drawable/magenta" />
+
+    <ImageView
+        android:id="@+id/yellowImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/addImageView"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="18dp"
+        app:srcCompat="@drawable/yellow" />
+
+    <ImageView
+        android:id="@+id/whiteImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/addImageView"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="18dp"
+        app:srcCompat="@drawable/white" />
+
+    <ImageView
+        android:id="@+id/colorImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/addImageView"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="90dp"
+        app:srcCompat="@drawable/ic_shortcut_palette" />
+
+</RelativeLayout>
