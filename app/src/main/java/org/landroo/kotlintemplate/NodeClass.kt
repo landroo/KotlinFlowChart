@@ -7,6 +7,7 @@ import android.content.Context
 import android.graphics.PathEffect
 import android.graphics.PathDashPathEffect
 import android.graphics.Path
+import android.util.Log
 import org.json.JSONObject
 
 /**
@@ -39,12 +40,11 @@ class NodeClass(context: Context){
     /**
      * node link class
      */
-    class NodeLink(n1: Node, n2: Node, id: Int) {
+    class NodeLink(n1: Node, n2: Node, var id: Int) {
         var node1: Node = n1
         var node2: Node = n2
 
         var selected: Boolean = false
-        var id: Int = id
     }
 
     /**
@@ -57,7 +57,7 @@ class NodeClass(context: Context){
         effect = PathDashPathEffect(makePathPattern(pathSize * 4, pathSize * 2), (pathSize * 4).toFloat(), 0.0f,
                 PathDashPathEffect.Style.ROTATE)
 
-        scale = context.resources.displayMetrics.density;
+        scale = context.resources.displayMetrics.density
         foreColor.textSize = GESTURE_THRESHOLD_DIP * scale + 0.5f
 
         strokePaint.color = 0xFFFF0000.toInt()
@@ -145,14 +145,12 @@ class NodeClass(context: Context){
      */
     fun selectNode(px: Double, py: Double, zx: Double, zy: Double): Node? {
         var selItem: Node? = null
-        for (i in nodes?.size!! - 1 downTo 0) {
-            val item = nodes?.get(i)
-            if (item != null) {
-                if (item.isInside(px, py, zx, zy)) {
-                    //nodeClass.reorder(item, i)
-                    selItem = item
-                    break
-                }
+        for (i in nodes.size - 1 downTo 0) {
+            val item = nodes.get(i)
+            if (item.isInside(px, py, zx, zy)) {
+                //nodeClass.reorder(item, i)
+                selItem = item
+                break
             }
         }
         return selItem
@@ -163,8 +161,8 @@ class NodeClass(context: Context){
      */
     fun selectLink(px: Double, py: Double, zx: Double, zy: Double): NodeLink? {
 
-        var xarr = DoubleArray(6)
-        var yarr = DoubleArray(6)
+        val xarr = DoubleArray(6)
+        val yarr = DoubleArray(6)
         for (link in links) {
 
             val cx1 = (link.node1.px + link.node1.u) * zx
@@ -213,7 +211,7 @@ class NodeClass(context: Context){
 
         if(bOK) {
             //Log.i(TAG, "link added")
-            var link = NodeLink(node1, node2, ++linkId)
+            val link = NodeLink(node1, node2, ++linkId)
             links.add(link)
         }
     }
@@ -305,7 +303,7 @@ class NodeClass(context: Context){
     /**
      * create selection border pattern
      */
-    fun makePathPattern(w: Double, h: Double): Path {
+    private fun makePathPattern(w: Double, h: Double): Path {
         val path = Path()
         path.moveTo(0f, 0f)
         path.lineTo((w / 2.0).toFloat(), 0f)
@@ -320,7 +318,7 @@ class NodeClass(context: Context){
      * serialize nodes
      */
     fun nodeList(): String {
-        var sb = StringBuilder()
+        val sb = StringBuilder()
         for (node in nodes) {
             sb.append(node.toJson())
             sb.append("\n")
@@ -332,7 +330,7 @@ class NodeClass(context: Context){
      * serialize links
      */
     fun linkList(): String {
-        var sb = StringBuilder()
+        val sb = StringBuilder()
         for (link in links) {
             sb.append(link.id)
             sb.append(";")
@@ -349,6 +347,7 @@ class NodeClass(context: Context){
      */
     fun addNodes(nodeList: String, linkList: String) {
         val nodeArr = nodeList.split("\n")
+        nodeId = 0
         nodeArr.forEach {
             if (it.trim() != "") {
                 //Log.i(TAG, it)
@@ -363,9 +362,10 @@ class NodeClass(context: Context){
                 val color = node.get("color") as Int
                 val points = node.get("points") as String
                 val newNode = Node(px, py, 0, shape, scale)
+                //Log.i(TAG, "id: " + id)
                 newNode.setNode(px, py, width, height, id, shape, text, color, points)
                 nodes.add(newNode)
-                nodeId++
+                if(nodeId < id) nodeId = id + 1
             }
         }
 
@@ -376,8 +376,8 @@ class NodeClass(context: Context){
                 val id = arr[0].toInt()
                 val id1 = arr[1].toInt()
                 val id2 = arr[2].toInt()
-                var node1 = nodes.get(0)
-                var node2 = nodes.get(0)
+                var node1 = nodes[0]
+                var node2 = nodes[0]
                 nodes.forEach {
                     if (it.id == id1) {
                         node1 = it
